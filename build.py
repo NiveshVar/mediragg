@@ -1,27 +1,24 @@
-import os
-import sys
-sys.path.append('.')
-
+from download_chroma import download_chroma_db
 from src.rag_system import PDFNotesRAG
-import logging
+import os
 
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
-
-def build_vector_db():
-    logger.info("🚀 Building vector database for deployment...")
+def setup_system():
+    print("🚀 Setting up system with pre-built Chroma DB...")
     
-    # Clean up existing
-    if os.path.exists("./chroma_db"):
-        import shutil
-        shutil.rmtree("./chroma_db")
+    # Download existing Chroma DB
+    download_chroma_db()
     
-    # Create new vector DB from PDFs
-    rag = PDFNotesRAG("./data")
-    rag.load_pdfs()
-    rag.chunk_documents()
-    rag.setup_vector_store(force_recreate=True)
-    logger.info("✅ Vector DB built successfully!")
+    # Initialize RAG (no need to process PDFs)
+    rag = PDFNotesRAG("./data")  # Data folder can be empty
+    
+    # Load existing vector store
+    rag.setup_vector_store(force_recreate=False)  # FALSE = use existing
+    
+    # Setup LLM only
+    api_key = "AIzaSyBpCOIHt6VO-OVj9pN8_PZC6oKtvlE14FI"
+    rag.setup_gemini_llm(api_key)
+    
+    print("✅ System ready in 2 minutes!")
 
 if __name__ == "__main__":
-    build_vector_db()
+    setup_system()
