@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: hack-a-cure-medical-rag
+    name: hack-a-cure-medical
     env: python
     plan: free
     buildCommand: |
