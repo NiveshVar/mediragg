@@ -5,8 +5,8 @@ import os
 def download_chroma_db():
     print("📥 Downloading pre-built Chroma DB...")
     
-    # Your Google Drive link
-    chroma_url = "https://drive.google.com/file/d/1t6i0AgwzSYNO9_31SrC3cCy99T4G0Jc7/view?usp=sharing"
+    # YOUR ACTUAL GOOGLE DRIVE FILE ID
+    chroma_url = "https://drive.google.com/uc?id=1t6i0AgwzSYNO9_31SrC3cCy99T4G0Jc7"
     
     # Download
     gdown.download(chroma_url, "chroma_db.zip", quiet=False)
