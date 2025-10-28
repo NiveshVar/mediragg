@@ -6,7 +6,7 @@ import numpy as np
 from langchain_community.document_loaders import PyPDFLoader, UnstructuredPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.embeddings import HuggingFaceEmbeddings
-from langchain.vectorstores import Chroma
+from langchain_community.vectorstores import Chroma
 from langchain.docstore.document import Document
 import google.generativeai as genai
 import threading
@@ -526,4 +526,5 @@ if __name__ == "__main__":
         result = rag.ask_question(query)
         print(f"🤖 Answer: {result['answer'][:200]}...")
         print(f"🎯 Confidence: {result.get('confidence', 0):.1f}%")
+
         print(f"📚 Sources: {len(result.get('sources', []))}")
