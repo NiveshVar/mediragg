@@ -4,9 +4,5 @@ chromadb==0.4.22
 google-generativeai==0.3.2
 pypdf==3.17.0
 gdown==4.7.1
-
-# Use compatible versions:
 numpy==1.26.0
-sentence-transformers==2.3.1
-langchain-community==0.0.29
-langchain-text-splitters==0.0.1
+setuptools==65.5.0
